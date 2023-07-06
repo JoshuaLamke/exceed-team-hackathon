@@ -30,3 +30,5 @@ Open your browser and go to `http://localhost:3000` . You should see the greetin
 ### Configuring the backend
 
 This template is designed to let you plug & play any local api running on port 3000. Go to [] for specific language examples.
+
+> To run both the frontend & the backend at once, you can use two different terminal windows or use a library like [Concurrently](https://www.npmjs.com/package/concurrently) in the package.json file
