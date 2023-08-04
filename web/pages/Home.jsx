@@ -14,8 +14,12 @@ function App() {
   )
   return (
     <section className="hero">
-      <div className={`status-bubble ${apiRunning ? "online" : "offline"}`}>
-        <p>• Local API status: {apiRunning ? "online" : "offline"}</p>
+      <div
+        className={`status-bubble ${
+          apiRunning ? "connected" : "not-connected"
+        }`}
+      >
+        <p>• Local API status: {apiRunning ? "connected" : "not-connected"}</p>
       </div>
       <img src={logo} width={300} height={136} />
       <h1>Welcome to the Dev Technology 2023 Hackathon!</h1>

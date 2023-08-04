@@ -61,11 +61,11 @@
   margin-bottom: 32px;
 }
 
-.status-bubble.offline {
+.status-bubble.not-connected {
   background-color: #d41a492f;
 }
 
-.status-bubble.online {
+.status-bubble.connected {
   background-color: #1ad4902f;
 }
 
@@ -74,10 +74,10 @@
   font-size: 16px;
 }
 
-.status-bubble.offline p {
+.status-bubble.not-connected p {
   color: #f52459;
 }
 
-.status-bubble.online p {
+.status-bubble.connected p {
   color: #0a6f4a;
 }
