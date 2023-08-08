@@ -33,6 +33,6 @@ This template proxies any requests made to http://localhost:3000 to the route /a
 
 This allows you to use any language you want to use to create the backend. All you'll need to do is set up a web server running on port 3000.
 
-Go to the [api folder](/api/README.md) for specific language examples.
+Go to the [backend folder](/backend/README.md) for specific language examples.
 
 > To run both the frontend & the backend at once, you can use two different terminal windows or use a library like [Concurrently](https://www.npmjs.com/package/concurrently) in the package.json file

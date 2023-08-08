@@ -4,11 +4,11 @@ import { ArrowUpRight } from "@phosphor-icons/react"
 import "./Home.css"
 
 function App() {
-  const [apiRunning, setApiRunning] = useState(false)
+  const [backendRunning, setBackendRunning] = useState(false)
   useEffect(
     () => async () => {
       const response = await fetch("/api/healthcheck")
-      setApiRunning(response.status === 200)
+      setBackendRunning(response.status === 200)
     },
     []
   )
@@ -16,10 +16,12 @@ function App() {
     <section className="hero">
       <div
         className={`status-bubble ${
-          apiRunning ? "connected" : "not-connected"
+          backendRunning ? "connected" : "not-connected"
         }`}
       >
-        <p>• Local API status: {apiRunning ? "connected" : "not-connected"}</p>
+        <p>
+          • Local API status: {backendRunning ? "connected" : "not-connected"}
+        </p>
       </div>
       <img src={logo} width={300} height={136} />
       <h1>Welcome to the Dev Technology 2023 Hackathon!</h1>
