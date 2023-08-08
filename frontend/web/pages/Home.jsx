@@ -7,8 +7,8 @@ function App() {
   const [backendRunning, setBackendRunning] = useState(false)
   useEffect(
     () => async () => {
-      const response = await fetch("/api/healthcheck")
-      setBackendRunning(response.status === 200)
+      const resp = await fetch("/api/healthcheck")
+      setBackendRunning((await resp.json()).success === true)
     },
     []
   )
@@ -19,9 +19,7 @@ function App() {
           backendRunning ? "connected" : "not-connected"
         }`}
       >
-        <p>
-          • Local API status: {backendRunning ? "connected" : "not-connected"}
-        </p>
+        <p>• Backend: {backendRunning ? "connected" : "not connected"}</p>
       </div>
       <img src={logo} width={300} height={136} />
       <h1>Welcome to the Dev Technology 2023 Hackathon!</h1>
