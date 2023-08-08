@@ -1,11 +1,17 @@
 const express = require("express")
-const db = require("better-sqlite3")("test.db")
+const sqlite3 = require("sqlite3").verbose()
 
 const app = express()
 
-db.exec(
-  "CREATE TABLE IF NOT EXISTS test_table (id INTEGER PRIMARY KEY AUTOINCREMENT, message TEXT)"
-)
+const db = new sqlite3.Database("test.db", (err) => {
+  if (err) {
+    console.error("Error opening database:", err.message)
+  } else {
+    db.run(
+      "CREATE TABLE IF NOT EXISTS test_table (id INTEGER PRIMARY KEY AUTOINCREMENT, message TEXT)"
+    )
+  }
+})
 
 app.get("/healthcheck", (req, res) => {
   res.json({ success: true })
