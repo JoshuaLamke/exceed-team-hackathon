@@ -1,0 +1,18 @@
+{
+  "name": "js-example",
+  "version": "0.0.0",
+  "description": "An example Express app",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^8.5.0",
+    "express": "^4.18.2"
+  }
+}

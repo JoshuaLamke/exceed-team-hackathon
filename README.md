@@ -22,7 +22,7 @@ npm install
 Once dependencies have finished installing, you can now run the frontend app!
 
 ```bash
-npm run dev
+npm start
 ```
 
 Open your browser and go to `http://localhost:3000` . You should see the greeting page
