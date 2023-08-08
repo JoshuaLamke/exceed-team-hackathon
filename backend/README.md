@@ -1,6 +1,8 @@
-# Setup your backend
+# ⚙️ Setup the Backend
 
-> This readme contains specific language examples for getting your backend up and running. These are just general examples and if you want to try something else, make sure your backend server is running at http://localhost:3000
+This folder contains specific language examples for getting your backend up and running.
+
+> If you prefer to use a different backend language, all you need to do is create a web server that runs at port 3000
 
 - [Python](/backend/python-example/README.md)
 - [Node.JS](/backend/js-example/README.md)
