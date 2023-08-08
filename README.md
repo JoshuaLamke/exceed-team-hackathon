@@ -1,6 +1,6 @@
-# React Starter Template
+# Hackathon Starter Template
 
-This template is designed to get a React frontend running integrated with whatever backend programming language you want to use. Included in this template are ESLint & Prettier configurations, as well as pre-configured VSCode settings. Please refer to the [documentation](https://dev-technology-hackathon-2023.gitbook.io/docs/) for more in-depth information about setting up your app.
+This template is designed to get a full-stack web app up and running with a React front-end and whatever backend language you desire. Included in this template are ESLint & Prettier configurations, as well as pre-configured VSCode settings. Please refer to the [documentation](https://dev-technology-hackathon-2023.gitbook.io/docs/) for more in-depth information about setting up your app.
 
 ## ⚒️ Install the Frontend
 
@@ -10,7 +10,7 @@ First, clone the template using your favorite terminal
 
 ```bash
 git clone https://github.com/Dev-Technology-Hackathon-2023/hackathon-react-starter.git
-cd hackathon-react-starter
+cd hackathon-react-starter/frontend
 ```
 
 Next, install the required dependencies
