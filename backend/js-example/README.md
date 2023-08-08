@@ -1,6 +1,6 @@
 # Node.JS Backend
 
-This folder is home to a Node.JS express app with an example [Sqlite](https://www.digitalocean.com/community/tutorials/how-to-use-the-sqlite3-module-in-python-3) database
+This folder is home to a Node.JS express app with an example [Sqlite](https://www.digitalocean.com/community/tutorials/how-to-use-the-sqlite3-module-in-python-3) database. It comes preconfigured with Eslint & Prettier for code formatting.
 
 ## ⚒️ Installation
 
