@@ -6,6 +6,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from "axios";
 import { ErrorMessage } from '@hookform/error-message';
 
+const getDate = (date) => {
+    var d = new Date(date);
+    const dateCon = d.getFullYear() + "-" + (d.getMonth() < 10 ? "0" + d.getMonth() : d.getMonth()) + "-" + (d.getDate() < 10 ? "0" + d.getDate() : d.getDate())
+
+    return dateCon;
+}
+
 const TaskModal = ({
     task,
     title,
@@ -14,9 +21,14 @@ const TaskModal = ({
     setShow,
     user,
 }) => {
-    const update = async (task) => {
+    const update = async (t) => {
+        console.log(t)
         await axios.put(`http://localhost:3000/tasks/${task.id}`, {
-            ...task
+            ...t,
+            id: task.id,
+            due_date: Date.parse(t.due_date),
+            priority: t.priority?.value,
+            user_id: user.id,
         });
         setShow(false);
     }
@@ -39,6 +51,16 @@ const TaskModal = ({
                 value: "LOW",
             },
             ...task,
+            ...(
+                task?.due_date && task?.priority ? 
+                {
+                    due_date: getDate(task.due_date),
+                    priority: {
+                        value: task.priority
+                    }
+                } :
+                undefined
+            )
         },
         resolver: zodResolver(z.object({
             duration: z.number(),
@@ -52,6 +74,7 @@ const TaskModal = ({
             recurring_interval: z.number().optional(),
         })),
     })
+    console.log(formMethods.getValues())
     console.log(task)
     return (
         <Modal show={show} centered  className="d-flex flex-column" onHide={() => setShow(false)}>

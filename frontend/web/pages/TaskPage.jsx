@@ -14,10 +14,9 @@ function App() {
   const [showAdd, setShowAdd] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
   const [action, setAction] = useState("add");
-  console.log(tasks)
-  console.log(user)
+  const [currentTask, setCurrentTask] = useState(null);
   useEffect(() => {
-    if(userId) {
+    if(userId || !showAdd || !showUpdate) {
       axios.get(`http://localhost:3000/user/${userId}`).then((resp) => {
       if(resp.status === 200){
         setUser(resp.data);
@@ -29,11 +28,12 @@ function App() {
       }
       })
     }
-  }, [userId])
+  }, [userId, showAdd, showUpdate])
 
   if(!user || !tasks) {
     return <div>Loading...</div>;
   }
+  console.log(tasks)
   return (
     <section className="hero">
       <div>
@@ -54,9 +54,21 @@ function App() {
           title={"Add Task"}
           user={user}
         />
+        {currentTask &&<TaskModal 
+          action={"update"} 
+          setShow={setShowUpdate}
+          show={showUpdate}
+          task={currentTask}
+          title={"Update Task"}
+          user={user}
+          key={currentTask.toString()}
+        />}
         {tasks.map((task, index) => (
-          <div class={task.category} key={task.id}>
-            <Button onClick={() => setShowUpdate(true)}>
+          <div className={task.category} key={task.id}>
+            <Button onClick={() => {
+                setCurrentTask(task);
+                setShowUpdate(true)
+              }}>
               Update
             </Button>
             <h3>{task.title}</h3>
@@ -64,17 +76,8 @@ function App() {
             <div>{task.description}</div>
             <div>Duration: {task.duration}</div>
             <div>Priority: {task.priority}</div>
-            <TaskModal 
-              action={"update"} 
-              setShow={setShowUpdate}
-              show={showUpdate}
-              task={task}
-              title={"Update Task"}
-              user={user}
-            />
           </div>
         ))}
-        
       </div>
     </div>
     </section>
