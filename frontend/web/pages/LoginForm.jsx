@@ -116,7 +116,8 @@ export default function Form() {
                 </button>
             </form>
         </div><div>
-                <button onClick={doSignUp} className="btn" type="submit">Sign Up</button>
+			<p>No account? <button onClick={doSignUp} className="signup-btn" type="submit">Sign up here!</button></p>
+                {/* <button onClick={doSignUp} className="btn" type="submit">Sign Up</button> */}
             </div></>
 		</div>
 	);
