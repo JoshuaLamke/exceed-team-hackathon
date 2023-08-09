@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import "./SignupForm.css"
 
 export default function Form() {
 
@@ -78,7 +79,8 @@ export default function Form() {
 	};
 
 	return (
-		<><div className="form">
+		<div className="d-flex flex-column align-items-center justify-content-center" style={{height:"100vh"}}>
+<><div className="form">
             <div>
                 <h1>User Registration</h1>
             </div>
@@ -109,5 +111,6 @@ export default function Form() {
                 </button>
             </form>
         </div></>
+		</div>
 	);
 }
