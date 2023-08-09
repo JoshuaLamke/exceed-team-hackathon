@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <LoginForm />,
   },
   {
-    path: "/home",
+    path: "/home/:userId",
     element: <TaskPage />
   },
   {

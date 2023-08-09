@@ -32,8 +32,8 @@ export default function Form() {
 	};
 
     let navigate = useNavigate(); 
-    const routeChange = () =>{ 
-        let path = `home`; 
+    const routeChange = (userId) =>{ 
+        let path = `home/${userId}`; 
         navigate(path);
     }
 
@@ -49,9 +49,10 @@ export default function Form() {
                 password: password
             }).then((resp) => {
                 if(resp.status === 200){
+                    const userId = resp.data.id;
                     setSubmitted(true);
 			        setError(false);
-                    routeChange();
+                    routeChange(userId);
                 } else {
                     setError(true);
                 }
