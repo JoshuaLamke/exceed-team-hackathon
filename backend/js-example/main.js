@@ -99,16 +99,33 @@ app.post('/login', (req, res) => {
   );
 });
 
+// Get a specific user by ID
+app.get('/user/:id', (req, res) => {
+  const userId = req.params.id;
+
+  db.get('SELECT * FROM users WHERE id = ?', [userId], (err, user) => {
+    if (err) {
+      return res.status(500).json({ error: 'Failed to fetch user' });
+    }
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.status(200).json(user);
+  });
+});
+
 // Create a task
 app.post('/tasks', (req, res) => {
-  const { user_id, title, description, due_date, recurring_interval } = req.body;
+  const { user_id, title, description, due_date, recurring_interval, duration, priority} = req.body;
   const interval = recurring_interval ? recurring_interval : null;
+  const p = priority ? priority : null;
 
   db.run(
-    'INSERT INTO tasks (user_id, title, description, due_date, recurring_interval) VALUES (?, ?, ?, ?, ?)',
-    [user_id, title, description, due_date, interval],
+    'INSERT INTO tasks (user_id, title, description, due_date, recurring_interval, duration, priority) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [user_id, title, description, due_date, interval, duration, p],
     (err) => {
       if (err) {
+        console.log(err)
         return res.status(500).json({ error: 'Failed to create task' });
       }
       res.status(201).json({ message: 'Task created successfully' });
@@ -117,8 +134,8 @@ app.post('/tasks', (req, res) => {
 });
 
 // Get all tasks
-app.get('/tasks:id', (req, res) => {
-  const userId = req.params.id;
+app.get('/user/tasks/:userId', (req, res) => {
+  const userId = req.params.userId;
   db.all('SELECT * FROM tasks WHERE user_id = ?', [userId], (err, tasks) => {
     if (err) {
       return res.status(500).json({ error: 'Failed to fetch tasks' });
