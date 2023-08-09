@@ -4,11 +4,21 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./pages/Home"
 import "@fontsource-variable/inter"
 import "./index.css"
+import LoginForm from "./pages/LoginForm"
+import SignupForm from "./pages/SignupForm"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <LoginForm />,
+  },
+  {
+    path: "/home",
+    element: <Home />
+  },
+  {
+    path: "/signup",
+    element: <SignupForm />
   },
 ])
 
