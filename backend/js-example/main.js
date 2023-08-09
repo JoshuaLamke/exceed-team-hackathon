@@ -91,7 +91,7 @@ app.post('/login', (req, res) => {
         }
 
         // Passwords match, user is authenticated
-        res.status(200).json({ message: 'Login successful', user: {username: user.username, email: user.email} });
+        res.status(200).json(user);
       } catch (bcryptErr) {
         res.status(500).json({ error: 'Internal server error' });
       }
