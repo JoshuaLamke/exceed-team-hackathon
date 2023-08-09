@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import "./SignupForm.css"
+import "./SignupForm.css";
+import axios from "axios";
 
 export default function Form() {
 
@@ -55,10 +56,6 @@ export default function Form() {
                     setError(true);
                 }
             })
-            // TODO AUTHENTICATION ERROR CHECKING
-			setSubmitted(true);
-			setError(false);
-            routeChange();
 		}
 	};
 

@@ -8,6 +8,7 @@ import "@fontsource-variable/inter"
 import "./index.css"
 import LoginForm from "./pages/LoginForm"
 import SignupForm from "./pages/SignupForm"
+import TaskPage from "./pages/TaskPage"
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <Home />
+    element: <TaskPage />
   },
   {
     path: "/signup",
