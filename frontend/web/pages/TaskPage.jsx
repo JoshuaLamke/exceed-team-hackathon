@@ -55,7 +55,10 @@ function App() {
           user={user}
         />
         {tasks.map((task, index) => (
-          <div class={task.category}>
+          <div class={task.category} key={task.id}>
+            <Button onClick={() => setShowUpdate(true)}>
+              Update
+            </Button>
             <h3>{task.title}</h3>
             <h4>{task.due_date} - {task.category}</h4>
             <div>{task.description}</div>

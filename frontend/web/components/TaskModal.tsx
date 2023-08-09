@@ -27,7 +27,6 @@ const TaskModal = ({
             priority: task.priority?.value,
             user_id: user.id,
         }
-        console.log(task)
         await axios.post(`http://localhost:3000/tasks`, {
             ...task
         });
@@ -53,7 +52,7 @@ const TaskModal = ({
             recurring_interval: z.number().optional(),
         })),
     })
-    console.log(formMethods.formState.errors)
+    console.log(task)
     return (
         <Modal show={show} centered  className="d-flex flex-column" onHide={() => setShow(false)}>
             <Modal.Header closeButton>
