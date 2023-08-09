@@ -1,10 +1,12 @@
 const express = require("express")
 const sqlite3 = require("sqlite3").verbose()
 const bcrypt = require('bcrypt');
+const cors = require("cors");
 
 const app = express()
 // Middleware to parse JSON requests
 app.use(express.json());
+app.use(cors())
 
 // Connect to the SQLite3 database
 const db = new sqlite3.Database('user_tasks.db');
@@ -29,6 +31,9 @@ db.serialize(() => {
       due_date TIMESTAMP,
       recurring_interval INTEGER,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      priority TEXT,
+      category TEXT,
+      duration INTEGER NOT NULL,
       FOREIGN KEY (user_id) REFERENCES users(id)
     )
   `);
@@ -92,6 +97,78 @@ app.post('/login', (req, res) => {
       }
     }
   );
+});
+
+// Create a task
+app.post('/tasks', (req, res) => {
+  const { user_id, title, description, due_date, recurring_interval } = req.body;
+  const interval = recurring_interval ? recurring_interval : null;
+
+  db.run(
+    'INSERT INTO tasks (user_id, title, description, due_date, recurring_interval) VALUES (?, ?, ?, ?, ?)',
+    [user_id, title, description, due_date, interval],
+    (err) => {
+      if (err) {
+        return res.status(500).json({ error: 'Failed to create task' });
+      }
+      res.status(201).json({ message: 'Task created successfully' });
+    }
+  );
+});
+
+// Get all tasks
+app.get('/tasks:id', (req, res) => {
+  const userId = req.params.id;
+  db.all('SELECT * FROM tasks WHERE user_id = ?', [userId], (err, tasks) => {
+    if (err) {
+      return res.status(500).json({ error: 'Failed to fetch tasks' });
+    }
+    res.status(200).json(tasks);
+  });
+});
+
+// Get a specific task by ID
+app.get('/tasks/:id', (req, res) => {
+  const taskId = req.params.id;
+
+  db.get('SELECT * FROM tasks WHERE id = ?', [taskId], (err, task) => {
+    if (err) {
+      return res.status(500).json({ error: 'Failed to fetch task' });
+    }
+    if (!task) {
+      return res.status(404).json({ error: 'Task not found' });
+    }
+    res.status(200).json(task);
+  });
+});
+
+// Update a task by ID
+app.put('/tasks/:id', (req, res) => {
+  const taskId = req.params.id;
+  const { user_id, title, description, due_date, recurring_interval } = req.body;
+  const interval = recurring_interval ? recurring_interval : null;
+  db.run(
+    'UPDATE tasks SET user_id = ?, title = ?, description = ?, due_date = ?, recurring_interval = ? WHERE id = ?',
+    [user_id, title, description, due_date, interval, taskId],
+    (err) => {
+      if (err) {
+        return res.status(500).json({ error: 'Failed to update task' });
+      }
+      res.status(200).json({ message: 'Task updated successfully' });
+    }
+  );
+});
+
+// Delete a task by ID
+app.delete('/tasks/:id', (req, res) => {
+  const taskId = req.params.id;
+
+  db.run('DELETE FROM tasks WHERE id = ?', [taskId], (err) => {
+    if (err) {
+      return res.status(500).json({ error: 'Failed to delete task' });
+    }
+    res.status(200).json({ message: 'Task deleted successfully' });
+  });
 });
 
 app.listen(3000, () => {
