@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export default function Form() {
 
@@ -42,9 +43,19 @@ export default function Form() {
 			setError(true);
 		} else {
             // TODO AUTHENTICATION ERROR CHECKING
-			setSubmitted(true);
-			setError(false);
-            routeChange();
+            axios.post("http://localhost:3000/login", {
+                username: name, 
+                password: password
+            }).then((resp) => {
+                if(resp.status === 200){
+                    setSubmitted(true);
+			        setError(false);
+                    routeChange();
+                } else {
+                    setError(true);
+                }
+            })
+			
 		}
 	};
 
