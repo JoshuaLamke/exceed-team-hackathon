@@ -69,8 +69,17 @@
   }
   
   /* Styles for the Sign Up button */
-  .signup .btn {
-	background-color: #27ae60;
+  .signup-btn {
+	display: block;
+	text-align: center; /* Center the text horizontally */
+	margin: 10px auto; /* Center the text horizontally */
+	color: #3498db;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: color 0.2s;
+	border:none;
+	background: inherit;
+
   }
   
   .signup .btn:hover {
