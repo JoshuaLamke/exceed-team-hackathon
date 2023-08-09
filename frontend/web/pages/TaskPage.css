@@ -1,0 +1,176 @@
+/* Reset some default styling */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+
+  /* TaskPage.css */
+.hero {
+    text-align: center;
+    padding: 20px;
+  }
+  
+.hero h1 {
+    margin-bottom: 20px;
+}
+  
+.task {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.task h3 {
+    margin: 0;
+}
+  
+.task h4 {
+    margin: 5px 0;
+    font-weight: normal;
+}
+  
+.task button {
+    margin-top: 10px;
+}
+  
+.task div {
+    margin-top: 5px;
+}
+  
+  
+  /* Styles for the main container */
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #f5f5f5;
+}
+  
+  /* Styles for the form container */
+  .form {
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	width: 300px;
+  }
+  
+  .form h1 {
+	font-size: 24px;
+	margin-bottom: 10px;
+  }
+  
+  .messages {
+	margin-bottom: 15px;
+	color: #e74c3c;
+  }
+  
+  /* Styles for form elements */
+  .label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+  }
+  
+  .input {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	transition: border-color 0.2s;
+  }
+  
+  .input:focus {
+	border-color: #3498db;
+	outline: none;
+  }
+  
+  /* Styles for the submit button */
+  .btn {
+	background-color: #3498db;
+	color: #ffffff;
+	border: none;
+	border-radius: 4px;
+	padding: 10px 15px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+  }
+  
+  .btn:hover {
+	background-color: #2980b9;
+  }
+  
+  /* Styles for the Sign Up button */
+  .signup-btn {
+	display: block;
+	text-align: center; /* Center the text horizontally */
+	margin: 10px auto; /* Center the text horizontally */
+	color: #3498db;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: color 0.2s;
+	border:none;
+	background: inherit;
+
+  }
+  
+  .signup .btn:hover {
+	background-color: #219651;
+  }
+  
+
+/* .App {
+	text-align: center;
+	background-color: green;
+}
+
+.label {
+	display: block;
+	font-size: larger;
+	color: white;
+	padding: 5px;
+}
+
+.input {
+	font-size: larger;
+	padding: 5px;
+	margin: 2px;
+
+}
+
+.btn {
+	color: white;
+	background-color: red;
+	border-radius: 5px;
+	font-size: larger;
+	display: block;
+	padding: 5px;
+	margin: 10px auto;
+}
+
+.messages {
+	display: flex;
+	justify-content: center;
+}
+
+.error {
+	display: block;
+	background-color: red;
+	color: white;
+	width: fit-content;
+	height: 50px;
+	padding: 5px;
+}
+
+.success {
+	display: block;
+	background-color: lightblue;
+	color: black;
+	width: fit-content;
+	height: 50px;
+	padding: 5px;
+} */

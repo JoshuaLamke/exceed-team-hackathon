@@ -39,7 +39,7 @@ function App() {
       <div>
       <h1>{user.username}'s Task List</h1>
 
-      <div>
+      <div class="container">
         <Button onClick={() => {
           setAction("add");
           setShowAdd(true);
