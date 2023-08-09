@@ -32,8 +32,7 @@ export default function Form() {
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
-        let path = `home`; 
-        navigate(path);
+        navigate('/home');
     }
 
 	// Handling the form submission
