@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import "./SignupForm.css"
+import "./SignupForm.css";
+import axios from "axios";
 
 export default function Form() {
 
@@ -42,10 +43,19 @@ export default function Form() {
 		if (name === '' || email === '' || password === '') {
 			setError(true);
 		} else {
-            // TODO AUTHENTICATION ERROR CHECKING
-			setSubmitted(true);
-			setError(false);
-            routeChange();
+            axios.post("http://localhost:3000/signup", {
+                username: name, 
+                password: password,
+                email: email
+            }).then((resp) => {
+                if(resp.status === 201){
+                    setSubmitted(true);
+			        setError(false);
+                    routeChange();
+                } else {
+                    setError(true);
+                }
+            })
 		}
 	};
 

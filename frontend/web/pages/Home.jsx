@@ -14,29 +14,7 @@ function App() {
   )
   return (
     <section className="hero">
-      <div
-        className={`status-bubble ${
-          backendRunning ? "connected" : "not-connected"
-        }`}
-      >
-        <p>• Backend: {backendRunning ? "connected" : "not connected"}</p>
-      </div>
-      <img src={logo} width={300} height={136} />
-      <h1>Welcome to the Dev Technology 2023 Hackathon!</h1>
-      <p>
-        This page is a placeholder. Get started by editing{" "}
-        <code>web/pages/Home.jsx</code>
-      </p>
-      <div className="buttons-wrapper">
-        <a
-          className="button"
-          href="https://dev-technology-hackathon-2023.gitbook.io/product-docs/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View Documentation <ArrowUpRight size={18} />
-        </a>
-      </div>
+      
     </section>
   )
 }
