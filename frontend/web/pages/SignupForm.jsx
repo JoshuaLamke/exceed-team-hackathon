@@ -41,6 +41,19 @@ export default function Form() {
 		if (name === '' || email === '' || password === '') {
 			setError(true);
 		} else {
+            axios.post("http://localhost:3000/signup", {
+                username: name, 
+                password: password,
+                email: email
+            }).then((resp) => {
+                if(resp.status === 201){
+                    setSubmitted(true);
+			        setError(false);
+                    routeChange();
+                } else {
+                    setError(true);
+                }
+            })
             // TODO AUTHENTICATION ERROR CHECKING
 			setSubmitted(true);
 			setError(false);
