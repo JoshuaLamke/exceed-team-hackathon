@@ -11,44 +11,44 @@
     padding: 20px;
   }
   
-  .hero h1 {
+.hero h1 {
     margin-bottom: 20px;
-  }
+}
   
-  .task {
+.task {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px 0;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  .task h3 {
+.task h3 {
     margin: 0;
-  }
+}
   
-  .task h4 {
+.task h4 {
     margin: 5px 0;
     font-weight: normal;
-  }
+}
   
-  .task button {
+.task button {
     margin-top: 10px;
-  }
+}
   
-  .task div {
+.task div {
     margin-top: 5px;
-  }
+}
   
   
   /* Styles for the main container */
-  .container {
+.container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
 	background-color: #f5f5f5;
-  }
+}
   
   /* Styles for the form container */
   .form {
